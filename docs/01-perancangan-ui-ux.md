@@ -170,7 +170,7 @@ Saat ini fungsi badge status, kartu SPK, dan gaya `StyleSheet` diulang di tiap l
 │ Deadline 08 Jun   ● Diproses  │
 ├───────────────────────────────┤
 │ ...                           │
-└───────────────────────[+ SPK]─┘   ← FAB hanya admin
+└───────────────────────────────┘   (tombol "Tambah" di header, hanya admin)
 ```
 
 **Detail SPK (operator)**
@@ -181,7 +181,7 @@ Saat ini fungsi badge status, kartu SPK, dan gaya `StyleSheet` diulang di tiap l
 ├──────────────────────────────┤
 │ Item (3)                     │
 │  Banner_A.pdf  Flexi 280g    │
-│  3.0 × 1.0 m   Qty 10  Mata  │
+│  300 × 100 cm  Qty 10  Mata  │
 ├──────────────────────────────┤
 │ Riwayat                      │
 │  ○ 06/06 09:10 Plotter → ... │
@@ -190,7 +190,7 @@ Saat ini fungsi badge status, kartu SPK, dan gaya `StyleSheet` diulang di tiap l
 │ [     SELESAI     ]          │
 └──────────────────────────────┘
 ```
-Tombol status **hanya menampilkan transisi yang diizinkan** untuk role tersebut (`allowedStatuses()` di `src/services/rbac.ts`).
+> **Catatan kondisi saat ini**: aplikasi memakai *dropdown* status (`Picker`) + tombol **Simpan Status**, bukan dua tombol besar seperti wireframe di atas. Wireframe ini adalah **usulan** (lihat layar bertanda USULAN pada mockup Figma/`docs/mockup/protrack-mockup.html`). Opsi dropdown sudah dibatasi sesuai role (`allowedStatuses()` di `src/services/rbac.ts`).
 
 ## 1.6 Evaluasi Heuristik & Rekomendasi
 
@@ -199,8 +199,8 @@ Dievaluasi dengan 10 heuristik Nielsen terhadap kode saat ini.
 | # | Temuan | Dampak | Rekomendasi | Prioritas |
 | :-: | :-- | :-- | :-- | :-: |
 | 1 | Tidak ada indikator **offline/sinyal buruk**; timeout 15 dtk lalu gagal senyap (`console.log`) | Operator tidak tahu data basi | Banner "Offline" + tombol *Coba lagi*; tampilkan waktu sinkron terakhir | Tinggi |
-| 2 | Perubahan status langsung terkirim tanpa konfirmasi | Salah ketuk "Selesai" memindahkan SPK ke Finishing | Dialog konfirmasi + *Undo* 5 dtk (snackbar) | Tinggi |
-| 3 | Deadline ditampilkan sebagai tanggal mentah | Sulit menilai urgensi cepat | Tampilkan "2 hari lagi / terlambat 1 hari" + warna | Tinggi |
+| 2 | Status dipilih lewat dropdown lalu **Simpan Status**, tanpa dialog konfirmasi (juga untuk "Selesai", yang otomatis memindahkan SPK ke Finishing) | Salah pilih "Selesai" langsung tersimpan dan SPK hilang dari antrean operator | Dialog konfirmasi khusus transisi "Selesai" + *Undo* 5 dtk | Tinggi |
+| 3 | Daftar SPK **sudah** menampilkan sisa waktu relatif ("5 hari lagi", "Lewat 1 hari"); layar Detail masih menampilkan tanggal mentah | Inkonsisten antar layar; di Detail sulit menilai urgensi | Pakai komponen sisa-waktu yang sama di Detail | Sedang |
 | 4 | Notifikasi deadline dijanjikan di README, tetapi scheduler Laravel kosong | Fitur "peringatan otomatis" tidak berjalan | Implementasi job terjadwal (dok. 3 §3.8) + push notification | Tinggi |
 | 5 | Daftar SPK tanpa paginasi/skeleton | Lambat saat data ribuan | *Infinite scroll* + skeleton loader | Sedang |
 | 6 | Form `create`/`edit` 800+ baris, validasi sisi klien minim | Salah input, pesan error generik | Validasi per-field inline (react-hook-form + zod), tampilkan error 422 dari server per-field | Sedang |

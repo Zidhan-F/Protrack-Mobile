@@ -87,7 +87,7 @@ Semua FK memakai `ON DELETE CASCADE`. `users` juga memiliki `personal_access_tok
 | `spks.no_spk` | Unik. Dibuat sistem `SPK/{yy}/{mm}/{0000}`; pada impor XML memakai `INVOICENO` Accurate |
 | `spks.status` | `belum_diproses` → `sedang_diproses` → `menunggu_finishing` → `sedang_finishing` → `selesai`; `terlambat` |
 | `spks.priority` | `normal` · `high` · `urgent` |
-| `spk_details.panjang/lebar` | Dalam satuan meter (konvensi bisnis; belum ditegakkan di skema) |
+| `spk_details.panjang/lebar` | Dalam **cm** (label form `Panjang (cm)`/`Lebar (cm)` dan tampilan detail; belum ditegakkan di skema). Perlu dipastikan XML Accurate (`ITEMRESERVED2/3`) memakai satuan yang sama. |
 | `User::DEPARTMENT_BY_ROLE` | `develop=1, offset=2, plotter=3, uv=4, finishing=5` — **ID departemen di-hardcode**, harus cocok dengan seeder |
 
 ## 3.3 Matriks Hak Akses
@@ -160,7 +160,7 @@ Respons: **array** SPK (dengan `customer`, `department`) — *tanpa paginasi*.
   "deadline_date": "2026-06-14",
   "priority": "high",
   "keterangan": "Banner event",
-  "details": [ { "nama_file": "banner.pdf", "bahan": "Flexi 280", "panjang": 3, "lebar": 1, "qty": 10, "finishing": "Mata ayam" } ]
+  "details": [ { "nama_file": "banner.pdf", "bahan": "Flexi 280", "panjang": 300, "lebar": 100, "qty": 10, "finishing": "Mata ayam" } ]
 }
 ```
 201 `{ success, message, data }`. Status awal `belum_diproses`; `no_spk` dibuat server; membuat notifikasi "SPK Baru Dibuat".
