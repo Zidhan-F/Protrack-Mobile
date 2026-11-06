@@ -17,6 +17,6 @@
 Teks, label, urutan field, dan warna diambil dari kode. Data isian (nomor SPK, nama customer, tanggal) adalah contoh buatan.
 Layar *kondisi sekarang* belum memuat layar Edit SPK, Register, Ganti Password, dan Tentang. Chart pada Dashboard digambar ulang (bar dan pie sederhana), bukan keluaran `react-native-chart-kit`.
 
-Ikon memakai path SVG **Ionicons 7.4.0 asli** (nama sama dengan yang dipakai kode, mis. `grid`, `document-text-outline`; terlihat di atribut `data-ionicon`). Set aktif/nonaktif pada tab memakai varian filled/outline seperti `app/(tabs)/_layout.tsx`. Path dibungkus `<g transform="scale(0.046875)">` di dalam `viewBox="0 0 24 24"` karena importer HTML→Figma tidak membaca `viewBox="0 0 512 512"`. Logo kecil dan pie chart Dashboard tetap gambar sendiri. Font memakai Inter (aplikasi memakai font sistem).
+Ikon memakai path SVG **Ionicons 7.4.0 asli** (nama sama dengan yang dipakai kode, mis. `grid`, `document-text-outline`; terlihat di atribut `data-ionicon`). Set aktif/nonaktif pada tab memakai varian filled/outline seperti `app/(tabs)/_layout.tsx`. Path dibungkus `<g transform="scale(0.046875)">` di dalam `viewBox="0 0 24 24"` karena importer HTML→Figma tidak membaca `viewBox="0 0 512 512"`. Hanya pie chart Dashboard yang digambar sendiri. Font memakai Inter (aplikasi memakai font sistem).
 
 Impor ke Figma: lihat file Figma pada ringkasan sesi, atau gunakan tool `html_to_figma` dengan `cssSelector=.screen`.
