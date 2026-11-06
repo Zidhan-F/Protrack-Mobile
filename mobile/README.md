@@ -1,4 +1,4 @@
-# 📋 ProTrack Mobile
+# ProTrack Mobile
 
 > **Sistem Monitoring Alur Kerja Produksi Percetakan Berbasis Mobile**
 
@@ -6,7 +6,7 @@ ProTrack Mobile adalah aplikasi monitoring proses produksi percetakan yang diran
 
 ---
 
-## 🔐 Akun Demo (Demo Credentials)
+## Akun Demo (Demo Credentials)
 
 Gunakan akun berikut untuk mencoba aplikasi:
 
@@ -21,16 +21,16 @@ Gunakan akun berikut untuk mencoba aplikasi:
 
 > Password di atas sesuai `php artisan db:seed` (`DatabaseSeeder`). Jika akun admin dibuat lewat `AdminSeeder`, passwordnya `admin123`. Segera ganti pada lingkungan produksi.
 
-### 🛡️ Hak Akses per Role (RBAC)
+### Hak Akses per Role (RBAC)
 
 | Aksi | Administrator | Operator Develop / Offset / Plotter / UV | Operator Finishing |
 | :--- | :---: | :---: | :---: |
 | Dashboard & daftar SPK | Semua departemen | Hanya SPK departemennya | Hanya SPK di Finishing |
-| Lihat detail SPK & riwayat | ✅ | Hanya departemennya | Hanya di Finishing |
-| Buat / edit SPK, hapus detail | ✅ | ❌ | ❌ |
-| Impor XML Accurate | ✅ | ❌ | ❌ |
+| Lihat detail SPK & riwayat | Ya | Hanya departemennya | Hanya di Finishing |
+| Buat / edit SPK, hapus detail | Ya | - | - |
+| Impor XML Accurate | Ya | - | - |
 | Ubah status SPK | Semua status | `sedang_diproses`, `selesai`* | `sedang_finishing`, `selesai` |
-| Buat akun Administrator | ✅ | ❌ | ❌ |
+| Buat akun Administrator | Ya | - | - |
 
 \* Saat operator departemen cetak menandai `selesai`, SPK otomatis diteruskan ke Finishing dengan status `menunggu_finishing`.
 
@@ -38,18 +38,18 @@ Penegakan hak akses dilakukan di backend (Laravel Sanctum + middleware `role`); 
 
 ---
 
-## ✨ Fitur Utama
+## Fitur Utama
 
-- **📊 Dashboard Interaktif & Statistik**: Ringkasan total SPK, status pengerjaan, peringatan deadline (*urgent* & terlambat), serta diagram grafik status dan departemen (*Chart Kit*).
-- **📑 Manajemen & Pelacakan SPK**: Pemantauan detail SPK, pelanggan, spesifikasi produk, prioritas pengerjaan, dan *history log* tahapan pengerjaan.
-- **🔄 Impor Transaksi XML**: Kemudahan mengimpor file data XML *Delivery Order* hasil ekspor dari software akuntansi Accurate.
-- **🔔 Sistem Notifikasi**: Peringatan otomatis mengenai SPK yang mendekati batas waktu (*deadline*) atau mengalami keterlambatan.
-- **🏢 Multi-Departemen**: Alur kerja terstruktur untuk 5 departemen produksi (*Develop, Offset, Plotter, UV, Finishing*).
-- **👤 Profil & Keamanan**: Informasi profil pengguna, pengalihan peran, dan penggantian kata sandi (*Change Password*).
+- **Dashboard Interaktif & Statistik**: Ringkasan total SPK, status pengerjaan, peringatan deadline (*urgent* & terlambat), serta diagram grafik status dan departemen (*Chart Kit*).
+- **Manajemen & Pelacakan SPK**: Pemantauan detail SPK, pelanggan, spesifikasi produk, prioritas pengerjaan, dan *history log* tahapan pengerjaan.
+- **Impor Transaksi XML**: Kemudahan mengimpor file data XML *Delivery Order* hasil ekspor dari software akuntansi Accurate.
+- **Sistem Notifikasi**: Peringatan otomatis mengenai SPK yang mendekati batas waktu (*deadline*) atau mengalami keterlambatan.
+- **Multi-Departemen**: Alur kerja terstruktur untuk 5 departemen produksi (*Develop, Offset, Plotter, UV, Finishing*).
+- **Profil & Keamanan**: Informasi profil pengguna, pengalihan peran, dan penggantian kata sandi (*Change Password*).
 
 ---
 
-## 🛠️ Teknologi & Dependensi
+## Teknologi & Dependensi
 
 - **Framework**: [React Native](https://reactnative.dev/) dengan [Expo](https://expo.dev/) (Expo Router)
 - **Bahasa**: TypeScript & JavaScript
@@ -61,7 +61,7 @@ Penegakan hak akses dilakukan di backend (Laravel Sanctum + middleware `role`); 
 
 ---
 
-## 🚀 Panduan Memulai (Quick Start)
+## Panduan Memulai (Quick Start)
 
 ### 1. Prasyarat
 - **Node.js** (versi 18 LTS atau lebih baru)
@@ -100,7 +100,7 @@ npm start
 
 ---
 
-## 👥 Tim Pengembang
+## Tim Pengembang
 
 Proyek ini dikembangkan oleh:
 - **Nayla Raina Nazhirah** - NIM 411231018
@@ -109,5 +109,5 @@ Proyek ini dikembangkan oleh:
 
 ---
 
-## 📄 Lisensi & Hak Cipta
+## Lisensi & Hak Cipta
 Hak cipta dilindungi undang-undang. Proyek ini dikembangkan untuk kebutuhan operasional sistem pemantauan alur produksi percetakan.
